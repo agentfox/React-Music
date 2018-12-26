@@ -15,39 +15,39 @@ export default class PageContent extends Component {
 
     componentDidMount() {
         axios.all([
-            axios.get(`http://ws.audioscrobbler.com/2.0/?method=chart.gettoptracks&page=1&limit=20&api_key=${process.env.REACT_APP_LFM_KEY}&format=json`,{
+            axios.get(`//ws.audioscrobbler.com/2.0/?method=chart.gettoptracks&page=1&limit=20&api_key=${process.env.REACT_APP_LFM_KEY}&format=json`,{
                 headers: {
                   'Access-Control-Allow-Origin': '*',
                 },
                 proxy: {
-                  host: 'https://cuong-musix.herokuapp.com',
+                  host: '//cuong-musix.herokuapp.com',
                   port: process.env.PORT
                 }
                 }),
-            axios.get(`http://ws.audioscrobbler.com/2.0/?method=geo.gettoptracks&country=canada&page=1&limit=10&api_key=${process.env.REACT_APP_LFM_KEY}&format=json`,{
+            axios.get(`//ws.audioscrobbler.com/2.0/?method=geo.gettoptracks&country=canada&page=1&limit=10&api_key=${process.env.REACT_APP_LFM_KEY}&format=json`,{
                 headers: {
                   'Access-Control-Allow-Origin': '*',
                 },
                 proxy: {
-                  host: 'https://cuong-musix.herokuapp.com',
+                  host: '//cuong-musix.herokuapp.com',
                   port: process.env.PORT
                 }
                 }),
-            axios.get(`http://ws.audioscrobbler.com/2.0/?method=geo.gettoptracks&country=brazil&page=1&limit=10&api_key=${process.env.REACT_APP_LFM_KEY}&format=json`,{
+            axios.get(`//ws.audioscrobbler.com/2.0/?method=geo.gettoptracks&country=brazil&page=1&limit=10&api_key=${process.env.REACT_APP_LFM_KEY}&format=json`,{
                 headers: {
                   'Access-Control-Allow-Origin': '*',
                 },
                 proxy: {
-                  host: 'https://cuong-musix.herokuapp.com',
+                  host: '//cuong-musix.herokuapp.com',
                   port: process.env.PORT
                 }
                 }),
-            axios.get(`http://ws.audioscrobbler.com/2.0/?method=geo.gettoptracks&country=mexico&page=1&limit=10&api_key=${process.env.REACT_APP_LFM_KEY}&format=json`,{
+            axios.get(`//ws.audioscrobbler.com/2.0/?method=geo.gettoptracks&country=mexico&page=1&limit=10&api_key=${process.env.REACT_APP_LFM_KEY}&format=json`,{
                 headers: {
                   'Access-Control-Allow-Origin': '*',
                 },
                 proxy: {
-                  host: 'https://cuong-musix.herokuapp.com',
+                  host: '//cuong-musix.herokuapp.com',
                   port: process.env.PORT
                 }
                 })
@@ -74,7 +74,7 @@ export default class PageContent extends Component {
 
             
             this.setState({ tracksList, chartVN,chartUK,chartKPOP })
-            console.log(this.state);
+
             
           }))
           .catch(error => console.log(error));
@@ -87,7 +87,6 @@ export default class PageContent extends Component {
         this.setState({
             URLplayingSong : src
         })
-        console.log(this.state);
       }
 
 
@@ -109,21 +108,21 @@ export default class PageContent extends Component {
                             </ol>
                             <div className="carousel-inner" role="listbox">
                                 <div className="carousel-item active">
-                                    <img className="d-block img-fluid" src="https://www.mexicoescultura.com/galerias/actividades/principal/rosana_900_1.jpg" alt="First slide" />
+                                    <img className="d-block img-fluid" src="//www.mexicoescultura.com/galerias/actividades/principal/rosana_900_1.jpg" alt="First slide" />
                                     <div className="carousel-caption d-none d-md-block">
                                         <h4 className="text-warning">Caption goes here</h4>
                                         <p>Caption goes here</p>
                                     </div>
                                 </div>
                                 <div className="carousel-item">
-                                    <img className="d-block img-fluid" src="https://cms.intomore.com/wp-content/uploads/2018/08/GettyImages-1020392532_900x350_acf_cropped.jpg" alt="Second slide" />
+                                    <img className="d-block img-fluid" src="//cms.intomore.com/wp-content/uploads/2018/08/GettyImages-1020392532_900x350_acf_cropped.jpg" alt="Second slide" />
                                     <div className="carousel-caption d-none d-md-block">
                                         <h4 className="text-warning">Caption goes here</h4>
                                         <p>Caption goes here</p>
                                     </div>
                                 </div>
                                 <div className="carousel-item">
-                                    <img className="d-block img-fluid" src="https://generator.org.uk/wp-content/uploads/2018/10/didfund_banner_draft_2-e1539264702663.jpg" alt="Third slide" />
+                                    <img className="d-block img-fluid" src="//generator.org.uk/wp-content/uploads/2018/10/didfund_banner_draft_2-e1539264702663.jpg" alt="Third slide" />
                                     <div className="carousel-caption d-none d-md-block">
                                         <h4 className="text-warning">Caption goes here</h4>
                                         <p>Caption goes here</p>
@@ -159,13 +158,13 @@ export default class PageContent extends Component {
                 </div>
 
                     <div className="col-lg-3 ">
-                        <div className="mt-3 p-0" style={{height:"9em",backgroundImage:"url(https://static-zmp3.zadn.vn/skins/zmp3-v5.1/images/discover_background.png)",backgroundRepeat:"no-repeat",backgroundSize:"cover",position:"relative" }}>
+                        <div className="mt-3 p-0" style={{height:"9em",backgroundImage:"url(//static-zmp3.zadn.vn/skins/zmp3-v5.1/images/discover_background.png)",backgroundRepeat:"no-repeat",backgroundSize:"cover",position:"relative" }}>
                             <div className="p-0 m-0 " style={{height:"9em",backgroundColor:"black",opacity:0.6}}>
 
                             </div>
-                            <div className="d-flex justify-content-center align-items-center "  style={{position:"absolute",zIndex:"1060" ,top: "50%",left: "52%",marginRight: "-50%",transform: "translate(-50%, -50%)"}}>
+                            <div className="d-flex justify-content-center align-items-center "  style={{position:"absolute",zIndex:"900" ,top: "50%",left: "52%",marginRight: "-50%",transform: "translate(-50%, -50%)"}}>
                                 <div>
-                                    <a href="/"><img style={{height: "5em",width: "5em"}} src="https://static-zmp3.zadn.vn/skins/zmp3-v5.1/images/discover_cover_240.jpg" alt=""  ></img></a>
+                                    <a href="/"><img style={{height: "5em",width: "5em"}} src="//static-zmp3.zadn.vn/skins/zmp3-v5.1/images/discover_cover_240.jpg" alt=""  ></img></a>
                                 </div>
                                 <div className="d-flex flex-column mx-1">
                                     <a href="/" className=" p-0 m-0">
@@ -180,13 +179,13 @@ export default class PageContent extends Component {
                             <div className=" col-lg-12 col-md-6 col-sm-12">
                                 <h4 style={{color: "purple"}}>HOT TREND</h4>
                                 <div className="list-group">
-                                    <a href="/" className="list-group-item p-0 my-2"> <img className="img-fluid m-0" src="https://photo-zmp3.zadn.vn/cover/1/2/b/1/12b1529b9bdc7ddbc034c00e73870aba.jpg" alt="trend 1"></img> </a>
-                                    <a href="/" className="list-group-item p-0 my-2"> <img className="img-fluid m-0" src="https://photo-zmp3.zadn.vn/covers/e/9/e92910699de0aeee9f1587e0425d8a7c_1514894974.png" alt="trend 1"></img> </a>
-                                    <a href="/" className="list-group-item p-0 my-2"> <img className="img-fluid m-0" src="https://photo-zmp3.zadn.vn/covers/2/a/2ac9d9aa479519e1724db5b860373578_1499827968.jpg" alt="trend 1"></img> </a>
-                                    <a href="/" className="list-group-item p-0 my-2"> <img className="img-fluid m-0" src="https://photo-zmp3.zadn.vn/cover/5/5/a/6/55a619ea7a0c39489ddf1f0430e01056.jpg" alt="trend 1"></img> </a>
-                                    <a href="/" className="list-group-item p-0 my-2"> <img className="img-fluid m-0" src="https://photo-zmp3.zadn.vn/cover/5/6/b/1/56b199cb6f45279e44a6b689ee388b98.jpg" alt="trend 1"></img> </a>
-                                    <a href="/" className="list-group-item p-0 my-2"> <img className="img-fluid m-0" src="https://photo-zmp3.zadn.vn/cover/1/f/8/e/1f8ea944241a435a2f2ccac2da63dcbb.jpg" alt="trend 1"></img> </a>
-                                    <a href="/" className="list-group-item p-0 my-2"> <img className="img-fluid m-0" src="https://photo-zmp3.zadn.vn/cover/6/3/2/7/6327934eac9b32451ff11c814a81203a.jpg" alt="trend 1"></img> </a>
+                                    <a href="/" className="list-group-item p-0 my-2"> <img className="img-fluid m-0" src="//photo-zmp3.zadn.vn/cover/1/2/b/1/12b1529b9bdc7ddbc034c00e73870aba.jpg" alt="trend 1"></img> </a>
+                                    <a href="/" className="list-group-item p-0 my-2"> <img className="img-fluid m-0" src="//photo-zmp3.zadn.vn/covers/e/9/e92910699de0aeee9f1587e0425d8a7c_1514894974.png" alt="trend 1"></img> </a>
+                                    <a href="/" className="list-group-item p-0 my-2"> <img className="img-fluid m-0" src="//photo-zmp3.zadn.vn/covers/2/a/2ac9d9aa479519e1724db5b860373578_1499827968.jpg" alt="trend 1"></img> </a>
+                                    <a href="/" className="list-group-item p-0 my-2"> <img className="img-fluid m-0" src="//photo-zmp3.zadn.vn/cover/5/5/a/6/55a619ea7a0c39489ddf1f0430e01056.jpg" alt="trend 1"></img> </a>
+                                    <a href="/" className="list-group-item p-0 my-2"> <img className="img-fluid m-0" src="//photo-zmp3.zadn.vn/cover/5/6/b/1/56b199cb6f45279e44a6b689ee388b98.jpg" alt="trend 1"></img> </a>
+                                    <a href="/" className="list-group-item p-0 my-2"> <img className="img-fluid m-0" src="//photo-zmp3.zadn.vn/cover/1/f/8/e/1f8ea944241a435a2f2ccac2da63dcbb.jpg" alt="trend 1"></img> </a>
+                                    <a href="/" className="list-group-item p-0 my-2"> <img className="img-fluid m-0" src="//photo-zmp3.zadn.vn/cover/6/3/2/7/6327934eac9b32451ff11c814a81203a.jpg" alt="trend 1"></img> </a>
                                 </div>
                             </div>
                             
