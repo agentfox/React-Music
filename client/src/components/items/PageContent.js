@@ -15,10 +15,42 @@ export default class PageContent extends Component {
 
     componentDidMount() {
         axios.all([
-            axios.get(`http://ws.audioscrobbler.com/2.0/?method=chart.gettoptracks&page=1&limit=20&api_key=${process.env.REACT_APP_LFM_KEY}&format=json`),
-            axios.get(`http://ws.audioscrobbler.com/2.0/?method=geo.gettoptracks&country=canada&page=1&limit=10&api_key=${process.env.REACT_APP_LFM_KEY}&format=json`),
-            axios.get(`http://ws.audioscrobbler.com/2.0/?method=geo.gettoptracks&country=brazil&page=1&limit=10&api_key=${process.env.REACT_APP_LFM_KEY}&format=json`),
-            axios.get(`http://ws.audioscrobbler.com/2.0/?method=geo.gettoptracks&country=mexico&page=1&limit=10&api_key=${process.env.REACT_APP_LFM_KEY}&format=json`)
+            axios.get(`http://ws.audioscrobbler.com/2.0/?method=chart.gettoptracks&page=1&limit=20&api_key=${process.env.REACT_APP_LFM_KEY}&format=json`,{
+                headers: {
+                  'Access-Control-Allow-Origin': '*',
+                },
+                proxy: {
+                  host: 'https://cuong-musix.herokuapp.com',
+                  port: process.env.PORT
+                }
+                }),
+            axios.get(`http://ws.audioscrobbler.com/2.0/?method=geo.gettoptracks&country=canada&page=1&limit=10&api_key=${process.env.REACT_APP_LFM_KEY}&format=json`,{
+                headers: {
+                  'Access-Control-Allow-Origin': '*',
+                },
+                proxy: {
+                  host: 'https://cuong-musix.herokuapp.com',
+                  port: process.env.PORT
+                }
+                }),
+            axios.get(`http://ws.audioscrobbler.com/2.0/?method=geo.gettoptracks&country=brazil&page=1&limit=10&api_key=${process.env.REACT_APP_LFM_KEY}&format=json`,{
+                headers: {
+                  'Access-Control-Allow-Origin': '*',
+                },
+                proxy: {
+                  host: 'https://cuong-musix.herokuapp.com',
+                  port: process.env.PORT
+                }
+                }),
+            axios.get(`http://ws.audioscrobbler.com/2.0/?method=geo.gettoptracks&country=mexico&page=1&limit=10&api_key=${process.env.REACT_APP_LFM_KEY}&format=json`,{
+                headers: {
+                  'Access-Control-Allow-Origin': '*',
+                },
+                proxy: {
+                  host: 'https://cuong-musix.herokuapp.com',
+                  port: process.env.PORT
+                }
+                })
 
           ])
           .then(axios.spread( (a,b,c,d) => {
@@ -39,19 +71,7 @@ export default class PageContent extends Component {
             chartKPOP.forEach((e,i)=> {
                 e.mediaSrc = mediaUrl[i]
             })
-            // for(let i of tracksList) {
-                
-            //     i.mediaSrc = mediaUrl[i]
-            // }
-            // for(let i of chartVN) {
-            //     i.mediaSrc = mediaUrl[i]
-            // }
-            // for(let i of chartUK) {
-            //     i.mediaSrc = mediaUrl[i]
-            // }
-            // for(let i of chartKPOP) {
-            //     i.mediaSrc = mediaUrl[i]
-            // }
+
             
             this.setState({ tracksList, chartVN,chartUK,chartKPOP })
             console.log(this.state);
