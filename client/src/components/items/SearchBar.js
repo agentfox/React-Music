@@ -3,10 +3,17 @@ import { Input } from 'antd';
 import axios from 'axios';
 import "antd/dist/antd.css";
 export default class SearchBar extends Component {
+  state=({
+    value : "",
+    page_size: 10,
+    page: 1
+  })
 
-
-  hitEnter = (value)=> {
-    axios.get(`http://api.musixmatch.com/ws/1.1/track.search?q_artist=${value}&page_size=6&page=1&s_track_rating=desc&apikey=${process.env.REACT_APP_MM_KEY}`)
+  hitEnter = ()=> {
+    this.setState({
+      value
+    })
+    axios.get(`//ws.audioscrobbler.com/2.0/?method=track.search&track=${this.state.value}&page_size=${this.state.page_size}&page=${this.state.page}&s_track_rating=desc&apikey=${process.env.REACT_APP_MM_KEY}&format=json`)
     .then(res => {
       const tracksList = res.data.message.body.track_list;
       console.log(tracksList);
