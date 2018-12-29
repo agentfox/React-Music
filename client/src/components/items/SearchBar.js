@@ -9,7 +9,7 @@ export default class SearchBar extends Component {
     page: 1
   })
 
-  hitEnter = ()=> {
+  hitEnter = (value)=> {
     this.setState({
       value
     })

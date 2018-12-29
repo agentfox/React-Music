@@ -1,6 +1,5 @@
 import React, { Component,Fragment } from 'react'
 import { Tabs ,List } from 'antd';
-import {connect} from 'react-redux';
 import "../css/Chart.css"
 
 
@@ -13,7 +12,7 @@ export default class Chart extends Component {
     function callback(key) {
         console.log(key);
     }
-  
+    
     return (
       <Fragment>
             <h4  >
@@ -74,9 +73,3 @@ export default class Chart extends Component {
   }
 }
 
-const mapStateToProps = (state)=> {
-    return {
-        chart : state.chart
-    }
-}
-export default connect(mapStateToProps)(Chart)
