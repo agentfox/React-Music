@@ -1,7 +1,12 @@
 import React, { Component,Fragment } from 'react'
 import SongItem from './SongItem';
+import {playSongItem} from '../../actions/playSongAction'
+import {connect} from 'react-redux';
 
-export default class TracksGrid extends Component {
+class TracksGrid extends Component {
+
+
+
   render() {
     return (
       <Fragment>
@@ -11,7 +16,7 @@ export default class TracksGrid extends Component {
           <div className="row d-flex justify-content-center mb-4">
               {
                   this.props.songItems.map((item)=> (
-                      <SongItem   className=" col-lg-4 col-md-6 mb-4" playSong={this.playSong} mediaSrc={item.mediaSrc} key={item.name} id={item.mbid} url={item.image[3]["#text"]}  title={item.name} author={item.artist.name} />
+                      <SongItem  playSong={this.props.playSongItem}  className=" col-lg-4 col-md-6 mb-4"  key={item.name} id={item.mbid} url={item.image[3]["#text"]}  title={item.name} author={item.artist.name} />
                   ))
               }
           </div>
@@ -19,3 +24,14 @@ export default class TracksGrid extends Component {
     )
   }
 }
+const mapDispatchToProps = dispatch => {
+    return {
+      playSongItem : (songName)=> { dispatch(playSongItem(songName)) }
+    }
+  }
+  const mapStateToProps = (state) => {
+    return {
+      songItems : state.songItems 
+    }
+  }
+  export default connect(mapStateToProps,mapDispatchToProps)(TracksGrid);

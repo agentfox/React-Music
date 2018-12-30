@@ -5,9 +5,10 @@ const { Meta } = Card;
 
 export default class SongItem extends Component {
   
-  insertSong = ()=>{
-     this.props.playSong(this.props.mediaSrc)
+  playThisSong = ()=> {
+    this.props.playSong(this.props.title)
   }
+
   render() {
     
     return (
@@ -17,7 +18,7 @@ export default class SongItem extends Component {
                 hoverable
                 style={{ width: "200px",height :"293px",padding:"5px",margin:"5px" }}
                 cover={<img alt="example"  src={this.props.url} />}
-                onClick={this.insertSong}
+                onClick={this.playThisSong}
             >
                 <Meta 
                 title={this.props.title}

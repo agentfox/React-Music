@@ -15,7 +15,7 @@ class PageContent extends Component {
     }
 
     render() {
-        const { songItems,chart } = this.props;
+        
         return (
             <Fragment>
                 <div className="container">
@@ -23,7 +23,7 @@ class PageContent extends Component {
                     <div className="row">
                             <div className="col-lg-9 ">
                                 <Carousel />
-                                <TracksGrid songItems={songItems} />
+                                <TracksGrid  />
                             </div>
                             <div className="col-lg-3 ">
                                 <Music4U />
@@ -32,7 +32,7 @@ class PageContent extends Component {
                                         <Trend />
                                     </div>
                                     <div className="col-lg-12 col-md-6 col-sm-12 ">
-                                        <Chart chart={chart}/>
+                                        <Chart />
                                     </div>
                                 </div>
                             </div>
@@ -44,7 +44,6 @@ class PageContent extends Component {
 }
 
 const mapStateToProps = state => ({
-    songItems : state.songItems,
     chart : state.chart,
     loading : state.loading,
     error : state.error

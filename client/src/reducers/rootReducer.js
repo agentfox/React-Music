@@ -1,5 +1,5 @@
 import { FETCH_TRACKS_BEGIN , FETCH_TRACKS_SUCCESS , FETCH_TRACKS_FAILURE } from "../actions/fetchData4HomeAction";
-
+import {PLAY_SONG_ITEM ,PLAY_SONG_USUK,PLAY_SONG_VN,PLAY_SONG_KPOP  } from "../actions/playSongAction";
 
 const initState = {
     loading: false,
@@ -52,6 +52,47 @@ const rootReducer = (state = initState, action) => {
                 loading: false,
                 error: action.payload.error,
             };
+        
+        case PLAY_SONG_ITEM:
+            let item = state.songItems.find((i)=> i.name===action.payload.songName)
+            
+            return {
+                ...state,
+                player : {
+                    ...state.player,
+                    playingSong :item
+                }
+        };
+        case PLAY_SONG_VN:
+            let VN = state.chart.chartVN.find((i)=> i.name===action.payload.songName)
+            
+            return {
+                ...state,
+                player : {
+                    ...state.player,
+                    playingSong :VN
+                }
+        };
+        case PLAY_SONG_USUK:
+            let USUK = state.chart.chartUSUK.find((i)=> i.name===action.payload.songName)
+            
+            return {
+                ...state,
+                player : {
+                    ...state.player,
+                    playingSong :USUK
+                }
+        };
+        case PLAY_SONG_KPOP:
+            let KPOP = state.chart.chartKPOP.find((i)=> i.name===action.payload.songName)
+            
+            return {
+                ...state,
+                player : {
+                    ...state.player,
+                    playingSong :KPOP
+                }
+        };
 
         default:
         // ALWAYS have a default case in a reducer
