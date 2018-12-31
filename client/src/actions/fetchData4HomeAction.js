@@ -12,34 +12,8 @@ import {mediaUrl} from '../seeder2';
                         host: "localhost",//'//cuong-musix.herokuapp.com',
                         port: 3000//process.env.PORT
                         }
-                        }),
-                    axios.get(`//ws.audioscrobbler.com/2.0/?method=geo.gettoptracks&country=canada&page=1&limit=10&api_key=${process.env.REACT_APP_LFM_KEY}&format=json`,{
-                        headers: {
-                        'Access-Control-Allow-Origin': '*',
-                        },
-                        proxy: {
-                        host: "localhost",//'//cuong-musix.herokuapp.com',
-                        port: 3000//process.env.PORT
-                        }
-                        }),
-                    axios.get(`//ws.audioscrobbler.com/2.0/?method=geo.gettoptracks&country=brazil&page=1&limit=10&api_key=${process.env.REACT_APP_LFM_KEY}&format=json`,{
-                        headers: {
-                        'Access-Control-Allow-Origin': '*',
-                        },
-                        proxy: {
-                        host: "localhost",//'//cuong-musix.herokuapp.com',
-                        port: 3000//process.env.PORT
-                        }
-                        }),
-                    axios.get(`//ws.audioscrobbler.com/2.0/?method=geo.gettoptracks&country=mexico&page=1&limit=10&api_key=${process.env.REACT_APP_LFM_KEY}&format=json`,{
-                        headers: {
-                        'Access-Control-Allow-Origin': '*',
-                        },
-                        proxy: {
-                        host: "localhost",//'//cuong-musix.herokuapp.com',
-                        port: 3000//process.env.PORT
-                        }
                         })
+
 
                 ])
     }
@@ -48,29 +22,17 @@ export const loadHotTracks = ()=> {
     return (dispatch)=> {
         dispatch(fetchTracksBegin());
         return getTracks()
-                .then(axios.spread( (a,b,c,d) => {
+                .then( (a) => {
                         let tracksList = a.data.tracks.track;
-                        let chartVN = b.data.tracks.track;
-                        let chartUSUK = c.data.tracks.track;
-                        let chartKPOP = d.data.tracks.track;
 
                         tracksList.forEach((e,i)=> {
                             e.mediaSrc = mediaUrl[i]
                         })
-                        chartVN.forEach((e,i)=> {
-                            e.mediaSrc = mediaUrl[i]
-                        })
-                        chartUSUK.forEach((e,i)=> {
-                            e.mediaSrc = mediaUrl[i]
-                        })
-                        chartKPOP.forEach((e,i)=> {
-                            e.mediaSrc = mediaUrl[i]
-                        })
 
-                        dispatch( fetchTracksSuccess({tracksList,chartVN,chartUSUK,chartKPOP}) )
+                        dispatch( fetchTracksSuccess(tracksList) )
  
-                }))
-                .catch(error => fetchTracksFailure(error));
+                })
+                .catch(error => dispatch(fetchTracksFailure(error)));
 
     }
 }

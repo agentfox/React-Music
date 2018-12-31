@@ -1,5 +1,7 @@
 import { FETCH_TRACKS_BEGIN , FETCH_TRACKS_SUCCESS , FETCH_TRACKS_FAILURE } from "../actions/fetchData4HomeAction";
+import { FETCH_CHARTS_BEGIN , FETCH_CHARTS_SUCCESS , FETCH_CHARTS_FAILURE } from "../actions/fetchData4ChartAction";
 import {PLAY_SONG_ITEM ,PLAY_SONG_USUK,PLAY_SONG_VN,PLAY_SONG_KPOP  } from "../actions/playSongAction";
+import {SEARCH_FOR_FULL_RESULT,SEARCH_BEGIN,SEARCH_FAILURE} from '../actions/searchActions'
 
 const initState = {
     loading: false,
@@ -10,11 +12,16 @@ const initState = {
         chartUSUK :[],
         chartKPOP : []
     },
-    searchBar : {
+    search : {
         value : "",
-        type : "track",
-        pageSize : 10,
-        page : 1
+        //type : "song",
+        suggestion : [],
+        numberOfResults : 0,
+        page : 1,
+        limit : 10,
+        results : [],
+        loading: false,
+        error: null,
     },
     player : {
         playingSong : {},
@@ -36,15 +43,11 @@ const rootReducer = (state = initState, action) => {
                 error: null
             };
         case FETCH_TRACKS_SUCCESS:
+            console.log(action.payload);
             return {
                 ...state,
                 loading: false,
-                songItems: action.payload.tracks.tracksList,
-                chart : {
-                    chartVN : action.payload.tracks.chartVN,
-                    chartUSUK : action.payload.tracks.chartUSUK,
-                    chartKPOP : action.payload.tracks.chartKPOP
-                }
+                songItems: action.payload.tracks,
             };
         case FETCH_TRACKS_FAILURE:
             return {
@@ -52,7 +55,30 @@ const rootReducer = (state = initState, action) => {
                 loading: false,
                 error: action.payload.error,
             };
-        
+        case FETCH_CHARTS_BEGIN:
+            return {
+                ...state,
+                loading: true,
+                error: null
+            };
+        case FETCH_CHARTS_SUCCESS:
+            console.log(action.payload);
+            
+            return {
+                ...state,
+                loading: false,
+                chart : {
+                    chartVN : action.payload.tracks.chartVN,
+                    chartUSUK : action.payload.tracks.chartUSUK,
+                    chartKPOP : action.payload.tracks.chartKPOP
+                }
+            };
+        case FETCH_CHARTS_FAILURE:
+            return {
+                ...state,
+                loading: false,
+                error: action.payload.error,
+            };       
         case PLAY_SONG_ITEM:
             let item = state.songItems.find((i)=> i.name===action.payload.songName)
             
@@ -93,9 +119,43 @@ const rootReducer = (state = initState, action) => {
                     playingSong :KPOP
                 }
         };
+        case SEARCH_BEGIN : 
+            console.log('begin');
+            
+            return {
+                ...state,
+                search : {
+                    ...state.search,
+                    loading : true,
+                    error: null
+                }
+            };
+        case SEARCH_FOR_FULL_RESULT : 
+            console.log(action.payload);
+            return {
+                ...state,
+                search : {
+                    ...state.search,
+                    value : action.payload.value,
+                    results : action.payload.results,
+                    numberOfResults : action.payload.num,
+                    error: null,
+                    loading : false,
+                }
+        };
+        case SEARCH_FAILURE : 
+            console.log('failed');
+            return {
+                ...state,
+                search : {
+                    ...state.search,
+                    loading : false,
+                    error: action.payload
+                }
+            };
 
         default:
-        // ALWAYS have a default case in a reducer
+        // ALWAYS have a default case in a reducer import axios from 'axios';
         return state;
     }
     

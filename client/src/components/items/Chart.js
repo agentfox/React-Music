@@ -1,12 +1,17 @@
 import React, { Component,Fragment } from 'react'
 import { Tabs ,List } from 'antd';
 import "../css/Chart.css"
-import {playVN,playUSUK,playKPOP} from '../../actions/playSongAction'
+import {playVNSong,playUSUKSong,playKPOPSong} from '../../actions/playSongAction';
+import {loadCharts} from '../../actions/fetchData4ChartAction';
 import {connect} from 'react-redux';
 const TabPane = Tabs.TabPane;
 
 
 class Chart extends Component {
+
+    componentDidMount() {
+        this.props.loadData()
+    }
   render() {
 
     function callback(key) {
@@ -83,9 +88,10 @@ class Chart extends Component {
 
 const mapDispatchToProps = dispatch => {
     return {
-      playVN : (songName)=> { dispatch(playVN(songName)) },
-      playUSUK : (songName)=> { dispatch(playUSUK(songName)) },
-      playKPOP : (songName)=> { dispatch(playKPOP(songName)) }
+      playVN : (songName)=> { dispatch(playVNSong(songName)) },
+      playUSUK : (songName)=> { dispatch(playUSUKSong(songName)) },
+      playKPOP : (songName)=> { dispatch(playKPOPSong(songName)) },
+      loadData : loadCharts
     }
   }
   const mapStateToProps = (state) => {

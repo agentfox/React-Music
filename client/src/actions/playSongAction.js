@@ -1,17 +1,3 @@
-// THIS IS A HANDLER CAN BE IMPORTED IN COMPONENTS AND TRIGGER BY THEIR EVENTS
-export const playSongItem = (songName)=> {
-    return playItemSong(songName)  
-}
-export const playVN = (songName)=> {
-    return playVNSong(songName)  
-}
-export const playUSUK = (songName)=> {
-    return playUSUKSong(songName)  
-}
-export const playKPOP = (songName)=> {
-    return playKPOPSong(songName)  
-}
-
 
 //----ACTION TYPES ------------------------------------------------------
 export const PLAY_SONG_ITEM = "PLAY_SONG_ITEM";
