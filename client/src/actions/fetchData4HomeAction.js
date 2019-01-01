@@ -3,19 +3,16 @@ import {mediaUrl} from '../seeder2';
 
 // KEEP THIS FETCH OUT SIDE JUST TO MAKE THE HANDLER FUNCTION SHORTER
     function getTracks() {
-        return axios.all([
-                    axios.get(`//ws.audioscrobbler.com/2.0/?method=chart.gettoptracks&page=1&limit=20&api_key=${process.env.REACT_APP_LFM_KEY}&format=json`,{
+            return  axios.get(`//ws.audioscrobbler.com/2.0/?method=chart.gettoptracks&page=1&limit=20&api_key=${process.env.REACT_APP_LFM_KEY}&format=json`,
+                    {
                         headers: {
                         'Access-Control-Allow-Origin': '*',
                         },
                         proxy: {
-                        host: "localhost",//'//cuong-musix.herokuapp.com',
-                        port: 3000//process.env.PORT
+                            host: "localhost",//'//cuong-musix.herokuapp.com',
+                            port: 3000//process.env.PORT
                         }
-                        })
-
-
-                ])
+                    })
     }
 // THIS IS A HANDLER CAN BE IMPORTED IN COMPONENTS AND TRIGGER BY THEIR EVENTS
 export const loadHotTracks = ()=> {

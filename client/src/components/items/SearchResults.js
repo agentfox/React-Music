@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { List, Avatar, Icon } from 'antd';
 import {connect} from 'react-redux';
 import playbtn from '../../assets/play-button.svg';
-import {Link} from 'react-router-dom';
+// import {Link} from 'react-router-dom';
 import Chart from './Chart';
 
 class SearchResults extends Component {
@@ -16,7 +16,7 @@ class SearchResults extends Component {
     return (
       <div className="container">
         <div className="row">
-              <div className="col-lg-8 ">
+              <div className="col-lg-8 col-md-8 ">
                 <h3>You search for "{this.props.value}" </h3> <p className="mt-auto ml-3"> return {this.props.numOfResults} results</p>
                 <List
                     bordered
@@ -46,7 +46,7 @@ class SearchResults extends Component {
                     )}
                 />
               </div>
-              <div className="col-lg-4">
+              <div className="col-lg-4 col-md-4 col-sm-8">
                 <Chart />
               </div>
           </div>

@@ -43,7 +43,6 @@ const rootReducer = (state = initState, action) => {
                 error: null
             };
         case FETCH_TRACKS_SUCCESS:
-            console.log(action.payload);
             return {
                 ...state,
                 loading: false,
@@ -56,6 +55,7 @@ const rootReducer = (state = initState, action) => {
                 error: action.payload.error,
             };
         case FETCH_CHARTS_BEGIN:
+        console.log("begin chart");
             return {
                 ...state,
                 loading: true,
@@ -63,14 +63,13 @@ const rootReducer = (state = initState, action) => {
             };
         case FETCH_CHARTS_SUCCESS:
             console.log(action.payload);
-            
             return {
                 ...state,
                 loading: false,
                 chart : {
-                    chartVN : action.payload.tracks.chartVN,
-                    chartUSUK : action.payload.tracks.chartUSUK,
-                    chartKPOP : action.payload.tracks.chartKPOP
+                    chartVN : action.payload.chartVN,
+                    chartUSUK : action.payload.chartUSUK,
+                    chartKPOP : action.payload.chartKPOP
                 }
             };
         case FETCH_CHARTS_FAILURE:

@@ -15,7 +15,7 @@ export default class UrlNavigator extends Component {
             <div>
               <Route exact path="/" component={Home} />
               <Route exact path="/search" component={ResultsPage} />
-              <Route exact path="/news" component={User} />
+              <Route exact path="/me" component={User} />
               <Route exact path="/track/:id" component={Player} />
               <Route exact path="/admin" component={Admin} />
               <Route exact path="/signin" component={SignIn} />

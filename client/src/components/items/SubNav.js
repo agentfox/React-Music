@@ -1,5 +1,5 @@
 import React,{Component} from "react";
-
+import {Link} from 'react-router-dom';
 import "antd/dist/antd.css";
 import '../css/SubNav.css'
 import { Layout, Menu, Icon } from "antd";
@@ -22,10 +22,10 @@ export default class SubNav extends Component {
                 <SubMenu
                   key="sub0"
                   title={
-                    <span>
+                    <Link to="/me">
                       <Icon type="home"  style={{ fontSize : "1.5em" }} />
                       Nhạc Cá Nhân 
-                    </span>
+                    </Link >
                   }
                 >
                 </SubMenu>

@@ -35,29 +35,30 @@ import {mediaUrl} from '../seeder2';
                 ])
     }
 // THIS IS A HANDLER CAN BE IMPORTED IN COMPONENTS AND TRIGGER BY THEIR EVENTS
-export const loadCharts = ()=> {
-    return (dispatch)=> {
-        dispatch(fetchChartsBegin());
-        return getCharts()
-                .then(axios.spread( (b,c,d) => {
-                        
-                        let chartVN = b.data.tracks.track;
-                        let chartUSUK = c.data.tracks.track;
-                        let chartKPOP = d.data.tracks.track;
+export const loadCharts = (dispatch)=> {
+    return ()=> {
+            dispatch(fetchChartsBegin())
+            return  getCharts()
+                    .then(axios.spread( (b,c,d) => {
+                            console.log(b);
+                            
+                            let chartVN = b.data.tracks.track;
+                            let chartUSUK = c.data.tracks.track;
+                            let chartKPOP = d.data.tracks.track;
 
-                        chartVN.forEach((e,i)=> {
-                            e.mediaSrc = mediaUrl[i]
-                        })
-                        chartUSUK.forEach((e,i)=> {
-                            e.mediaSrc = mediaUrl[i]
-                        })
-                        chartKPOP.forEach((e,i)=> {
-                            e.mediaSrc = mediaUrl[i]
-                        })
-                        dispatch( fetchChartsSuccess({chartVN,chartUSUK,chartKPOP}) )
- 
-                }))
-                .catch(error => dispatch(fetchChartsFailure(error)));
+                            chartVN.forEach((e,i)=> {
+                                e.mediaSrc = mediaUrl[i]
+                            })
+                            chartUSUK.forEach((e,i)=> {
+                                e.mediaSrc = mediaUrl[i]
+                            })
+                            chartKPOP.forEach((e,i)=> {
+                                e.mediaSrc = mediaUrl[i]
+                            })
+                            dispatch( fetchChartsSuccess({chartVN,chartUSUK,chartKPOP}) )
+
+                    }))
+                    .catch(error => dispatch(fetchChartsFailure(error)));
 
     }
 }
