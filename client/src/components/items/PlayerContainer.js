@@ -52,6 +52,7 @@ class PlayerContainer extends Component {
           }
         }
       ,250)
+    
 
       closePlayer = ()=> {
         this.setState({
@@ -60,6 +61,7 @@ class PlayerContainer extends Component {
       }
     
     render() {
+        
        if(this.props.playingSong.mediaSrc) {
           return (
             <div>
@@ -70,8 +72,8 @@ class PlayerContainer extends Component {
                     streamUrl={this.props.playingSong.mediaSrc}
                     trackTitle={this.props.playingSong.name}
                     trackArtist={this.props.playingSong.artist.name}
-                    duration 
                     preloadType="metadata"
+                    
                     />
                     
                 </div>

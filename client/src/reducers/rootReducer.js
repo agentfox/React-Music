@@ -1,6 +1,6 @@
 import { FETCH_TRACKS_BEGIN , FETCH_TRACKS_SUCCESS , FETCH_TRACKS_FAILURE } from "../actions/fetchData4HomeAction";
 import { FETCH_CHARTS_BEGIN , FETCH_CHARTS_SUCCESS , FETCH_CHARTS_FAILURE } from "../actions/fetchData4ChartAction";
-import {PLAY_SONG_ITEM ,PLAY_SONG_USUK,PLAY_SONG_VN,PLAY_SONG_KPOP  } from "../actions/playSongAction";
+import {PLAY_SONG_ITEM ,PLAY_SONG_USUK,PLAY_SONG_VN,PLAY_SONG_KPOP ,CLEAR_PLAYER } from "../actions/playSongAction";
 import {SEARCH_FOR_FULL_RESULT,SEARCH_BEGIN,SEARCH_FAILURE} from '../actions/searchActions'
 
 const initState = {
@@ -152,7 +152,14 @@ const rootReducer = (state = initState, action) => {
                     error: action.payload
                 }
             };
-
+        case CLEAR_PLAYER : 
+            return {
+                ...state,
+                player : {
+                    ...state.player,
+                    playingSong : {}
+                }
+            }
         default:
         // ALWAYS have a default case in a reducer import axios from 'axios';
         return state;

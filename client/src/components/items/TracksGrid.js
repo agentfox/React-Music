@@ -1,6 +1,6 @@
 import React, { Component,Fragment } from 'react'
 import SongItem from './SongItem';
-import {playItemSong} from '../../actions/playSongAction'
+import {playItemSong,ClearPlayer} from '../../actions/playSongAction'
 import {connect} from 'react-redux';
 
 class TracksGrid extends Component {
@@ -26,7 +26,10 @@ class TracksGrid extends Component {
 }
 const mapDispatchToProps = dispatch => {
     return {
-      playItemSong : (songName)=> { dispatch(playItemSong(songName)) }
+          playItemSong : async (songName)=> { 
+            await dispatch(ClearPlayer())
+            dispatch(playItemSong(songName)) 
+          }
     }
   }
   const mapStateToProps = (state) => {

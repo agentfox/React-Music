@@ -5,6 +5,7 @@ export const PLAY_SONG_VN = "PLAY_SONG_VN";
 export const PLAY_SONG_USUK = "PLAY_SONG_USUK";
 export const PLAY_SONG_KPOP = "PLAY_SONG_KPOP";
 export const ADD_SONG_TO_PLAYLIST = "ADD_SONG_TO_PLAYLIST";
+export const CLEAR_PLAYER = "CLEAR_PLAYER";
 // ------ACTION CREATOR---------------------------------------------------
 
 export const playItemSong = songName=> ({
@@ -28,3 +29,6 @@ export const addThisSong = name => ({
     payload: { name }
 });
 
+export const ClearPlayer = () => ({
+    type: CLEAR_PLAYER
+});

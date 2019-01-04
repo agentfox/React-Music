@@ -18,7 +18,6 @@ const {
 const ZingSoundPlayer = (props) => {
   
     const { trackTitle,trackArtist } = props;
-
     return (
       <Fragment>
         <PlayButton {...props} className="playbtn ml-2 mr-5 btn btn-outline-secondary" ><PlayIconSVG /></PlayButton>
