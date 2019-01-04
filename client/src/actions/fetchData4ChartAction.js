@@ -9,8 +9,8 @@ import {mediaUrl} from '../seeder2';
                         'Access-Control-Allow-Origin': '*',
                         },
                         proxy: {
-                        host: "localhost",//'//cuong-musix.herokuapp.com',
-                        port: 3000//process.env.PORT
+                        host: "cuong-musix.herokuapp.com",//'//cuong-musix.herokuapp.com',
+                        port: process.env.PORT || 3000//process.env.PORT
                         }
                         }),
                     axios.get(`//ws.audioscrobbler.com/2.0/?method=geo.gettoptracks&country=brazil&page=1&limit=10&api_key=${process.env.REACT_APP_LFM_KEY}&format=json`,{
@@ -18,8 +18,8 @@ import {mediaUrl} from '../seeder2';
                         'Access-Control-Allow-Origin': '*',
                         },
                         proxy: {
-                        host: "localhost",//'//cuong-musix.herokuapp.com',
-                        port: 3000//process.env.PORT
+                        host: "cuong-musix.herokuapp.com",//'//cuong-musix.herokuapp.com',
+                        port: process.env.PORT || 3000//process.env.PORT
                         }
                         }),
                     axios.get(`//ws.audioscrobbler.com/2.0/?method=geo.gettoptracks&country=mexico&page=1&limit=10&api_key=${process.env.REACT_APP_LFM_KEY}&format=json`,{
@@ -27,8 +27,8 @@ import {mediaUrl} from '../seeder2';
                         'Access-Control-Allow-Origin': '*',
                         },
                         proxy: {
-                        host: "localhost",//'//cuong-musix.herokuapp.com',
-                        port: 3000//process.env.PORT
+                        host: "cuong-musix.herokuapp.com",//'//cuong-musix.herokuapp.com',
+                        port: process.env.PORT || 3000//process.env.PORT
                         }
                         })
 

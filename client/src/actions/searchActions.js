@@ -5,7 +5,7 @@ import axios from 'axios';
 export const SearchFull = (songName,page=1,limit=30) => {
     return dispatch => {
         dispatch(searchBegin())
-        return axios.get(`http://ws.audioscrobbler.com/2.0/?method=track.search&track=${songName}&page=${page}&limit=${limit}&s_track_rating=desc&api_key=${process.env.REACT_APP_LFM_KEY}&format=json`)
+        return axios.get(`//ws.audioscrobbler.com/2.0/?method=track.search&track=${songName}&page=${page}&limit=${limit}&s_track_rating=desc&api_key=${process.env.REACT_APP_LFM_KEY}&format=json`)
             .then(result=> {
                 let numOfResults = result.data.results[`opensearch:totalResults`];
                 let {track} = result.data.results.trackmatches;

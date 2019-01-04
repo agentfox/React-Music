@@ -9,8 +9,8 @@ import {mediaUrl} from '../seeder2';
                         'Access-Control-Allow-Origin': '*',
                         },
                         proxy: {
-                            host: "localhost",//'//cuong-musix.herokuapp.com',
-                            port: 3000//process.env.PORT
+                            host: "cuong-musix.herokuapp.com",//'//cuong-musix.herokuapp.com',
+                            port: process.env.PORT || 3000//process.env.PORT
                         }
                     })
     }
