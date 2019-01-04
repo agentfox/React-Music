@@ -15,6 +15,7 @@ class Home extends Component {
           <div >
               <Nav />
               <SubNav />
+              
               <PageContent />
               
               <Footer />

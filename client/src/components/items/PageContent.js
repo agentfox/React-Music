@@ -1,6 +1,5 @@
 import React, {Fragment, Component } from 'react';
 import Chart from './Chart'
-import Mp3Player2 from './Mp3Player2'
 import Trend from './Trend';
 import Music4U from './Music4U'
 import TracksGrid from './TracksGrid';
@@ -19,7 +18,7 @@ class PageContent extends Component {
         return (
             <Fragment>
                 <div className="container">
-                    <Mp3Player2 />
+                    
                     <div className="row">
                             <div className="col-lg-9 ">
                                 <Carousel />
