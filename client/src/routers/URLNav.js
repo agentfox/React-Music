@@ -8,13 +8,11 @@ import Player from '../components/Player';
 import SignIn from '../components/SignIn';
 import SignUp from '../components/SignUp';
 import RecordChart from '../components/RecordChart';
-import Mp3Player2 from '../components/items/Mp3Player2';
 export default class UrlNavigator extends Component {
   render() {
     return (
         
             <div>
-              <Mp3Player2 />
               <Route exact path="/" component={Home} />
               <Route exact path="/search" component={ResultsPage} />
               <Route exact path="/me" component={User} />

@@ -16,7 +16,6 @@ class ResultsPage extends Component {
               <Nav />
               <SubNav />
               <SearchResults />
-              
               <Footer />
           </div>
       
